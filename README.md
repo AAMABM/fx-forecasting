@@ -38,3 +38,11 @@ pip install -r requirements.txt
 # Configure secrets
 cp .env.example .env
 # Edit .env and add your FRED API key (free from fred.stlouisfed.org)
+
+## 📸 Dashboard Gallery
+
+### Forecasts
+![Forecasts Table](images/forecast_table.png)
+
+### SHAP Explainability
+![SHAP Waterfall](images/shap_waterfall.png)
