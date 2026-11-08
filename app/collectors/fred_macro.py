@@ -8,12 +8,23 @@ from app.database.session import get_session
 
 log = logging.getLogger(__name__)
 
-# FRED series → (country_code, indicator_name)
 SERIES = {
+    # US Macro
     "CPIAUCSL": ("USA", "CPI_YOY"),
-    "UNRATE":   ("USA", "UNEMPLOYMENT"),
-    "DFF":      ("USA", "FED_FUNDS"),
-    "DGS10":    ("USA", "UST_10Y"),
+    "UNRATE": ("USA", "UNEMPLOYMENT"),
+    "FEDFUNDS": ("USA", "FED_FUNDS"),
+    "DGS10": ("USA", "UST_10Y"),
+    
+    # 3-Month Interbank Rates (for Interest Rate Differentials)
+    "IR3TIB01USM156N": ("USA", "RATE_USD"),
+    "IR3TIB01EZM156N": ("EUR", "RATE_EUR"),
+    "IR3TIB01GBM156N": ("GBR", "RATE_GBP"),
+    "IR3TIB01JPM156N": ("JPN", "RATE_JPY"),
+    "IR3TIB01CNM156N": ("CHN", "RATE_CNY"),
+ 
+
+    # Commodities (Brent Crude Oil)
+    "DCOILBRENTEU": ("USA", "OIL_BRENT"),
 }
 
 def fetch_series(series_id: str, start: date) -> list[tuple[date, float]]:
